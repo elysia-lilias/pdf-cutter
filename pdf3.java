@@ -109,9 +109,9 @@ public pdf3() throws IOException
 	belonging = new ArrayList<ArrayList<Integer>>();
 	destin = new ArrayList<Integer>();
 	//jb = new JButton("Run");
-	JLabel jl1 = new JLabel("Pdf Path£¨µ¼ÈëµÄpdf£©:");
-	JLabel jl2 = new JLabel("Output Path£¨µ¼³öµØÖ·£©£º");
-	JLabel jl3 = new JLabel("Save Name£¨±£´æÃû£¬¿ÉÒÔ²»´øpdf£©£º");
+	JLabel jl1 = new JLabel("Pdf Pathï¼ˆå¯¼å…¥çš„pdfï¼‰:");
+	JLabel jl2 = new JLabel("Output Pathï¼ˆå¯¼å‡ºåœ°å€ï¼‰ï¼š");
+	JLabel jl3 = new JLabel("Save Nameï¼ˆä¿å­˜åï¼Œå¯ä»¥ä¸å¸¦pdfï¼‰ï¼š");
 	jtf = new JTextField("");
 	jtf2 = new JTextField("");
 	jtf3 = new JTextField("Output.pdf");
@@ -294,10 +294,10 @@ public void actionPerformed(ActionEvent e) {
 			 newDoc_1.close();
 		        outputStream.close();
 		        getoutput = true;
-		        JOptionPane.showMessageDialog(jf1, "ÎÄ¼şÒÑµ¼³öµ½Ö¸¶¨µÄÄ¿Â¼", "µ¼³öÍê³É",JOptionPane.INFORMATION_MESSAGE);
+		        JOptionPane.showMessageDialog(jf1, "successfully output to the directory", "success",JOptionPane.INFORMATION_MESSAGE);
 			}catch (Exception e12) {
 				//newDoc_1.close();
-				outputDirectory = (String)JOptionPane.showInputDialog(null,"cannot find output file\nplease check the path","Output Error",JOptionPane.ERROR_MESSAGE,ic2,null,"ÔÚÕâÊäÈë");
+				outputDirectory = (String)JOptionPane.showInputDialog(null,"cannot find output file\nplease check the path","Output Error",JOptionPane.ERROR_MESSAGE,ic2,null,"åœ¨è¿™è¾“å…¥");
 			    try {
 				if(outputDirectory.isEmpty()) {}
 			    	}catch(Exception efag) {outputDirectory = "";}
@@ -305,7 +305,7 @@ public void actionPerformed(ActionEvent e) {
 			}}
 			
 		}else
-			JOptionPane.showMessageDialog(jf1, "Çë¹´Ñ¡ÏîÄ¿","¿ÕÑ¡Ôñ" ,JOptionPane.WARNING_MESSAGE);
+			JOptionPane.showMessageDialog(jf1, "please choose the index","empty" ,JOptionPane.WARNING_MESSAGE);
 			}
 	 }
 
@@ -324,7 +324,7 @@ public void actionPerformed(ActionEvent e) {
 while(!getinput) {
 	 READPDF(args0);
 	 if(!getinput) {
-	args0 = (String)JOptionPane.showInputDialog(null,"cannot find input file\nplease check the path","Input Error",JOptionPane.ERROR_MESSAGE,ic1,null,"ÔÚÕâÊäÈë");
+	args0 = (String)JOptionPane.showInputDialog(null,"cannot find input file\nplease check the path","Input Error",JOptionPane.ERROR_MESSAGE,ic1,null,"åœ¨è¿™è¾“å…¥");
 	jtf.setText(args0);
 	 }
 }
@@ -445,7 +445,7 @@ while(!getinput) {
 	 70	     * This will print the usage for this document.
 	 71	     */
 	 public static void READPDF(String inputFile){
-	        //´´½¨ÎÄµµ¶ÔÏó
+	        //åˆ›å»ºæ–‡æ¡£å¯¹è±¡
 		   // String in0 = inputFile.replaceAll("\\", "/");
 		 String titleofpdf1 = "";
 		 try {
@@ -466,12 +466,12 @@ while(!getinput) {
 		    PDDocument doc =null;
 	        String content="";
 	        int startPage = 1;
-	        // ½áÊøÌáÈ¡Ò³Êı
+	        // ç»“æŸæå–é¡µæ•°
 	        int endPage = Integer.MAX_VALUE;   
 	        try {
-	            //¼ÓÔØÒ»¸öpdf¶ÔÏó
+	            //åŠ è½½ä¸€ä¸ªpdfå¯¹è±¡
 	            doc =PDDocument.load(new File(inputFile));
-	            //»ñÈ¡Ò»¸öPDFTextStripperÎÄ±¾°şÀë¶ÔÏó  
+	            //è·å–ä¸€ä¸ªPDFTextStripperæ–‡æœ¬å‰¥ç¦»å¯¹è±¡  
 	            PDFTextStripper textStripper =new PDFTextStripper();
 	            textStripper.setSortByPosition(true);
 	            endPage = doc.getNumberOfPages();
@@ -479,10 +479,10 @@ while(!getinput) {
 	            textStripper.setEndPage(5);
 	            content=textStripper.getText(doc);
 	           // vo.setContent(content);
-	          //  System.out.println("ÄÚÈİ:"+content);
+	          //  System.out.println("å†…å®¹:"+content);
 	            numofp = doc.getNumberOfPages();
-	            System.out.println("È«²¿Ò³Êı"+doc.getNumberOfPages());  
-	            //¹Ø±ÕÎÄµµ
+	            System.out.println("å…¨éƒ¨é¡µæ•°"+doc.getNumberOfPages());  
+	            //å…³é—­æ–‡æ¡£
 	            getinput = true;
 	            doc.close();
 	        } catch (Exception e) {
